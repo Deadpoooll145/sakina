@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sakīna — Voiles &amp; Modest Fashion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --encre:#1E2420;
+    --emeraude:#1F5C4D;
+    --sable:#EFE7DB;
+    --lin:#F7F3EC;
+    --or:#B9905A;
+    --taupe:#8A8072;
+    --blanc:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',sans-serif;background:var(--lin);color:var(--encre);line-height:1.65;font-weight:300}
+  h1,h2,h3{font-family:'Marcellus',serif;font-weight:400;line-height:1.15}
+  .ar{font-family:'Amiri',serif}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:.72rem;color:var(--or);font-weight:500}
+
+  /* ---------- NAV ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(247,243,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(30,36,32,.08)}
+  .navin{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:'Marcellus',serif;font-size:1.35rem;letter-spacing:.14em;text-decoration:none;color:var(--encre)}
+  .logo span{color:var(--emeraude)}
+  .navlinks{display:flex;gap:34px;align-items:center}
+  .navlinks a{text-decoration:none;color:var(--encre);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}
+  .navlinks a:hover{color:var(--emeraude)}
+  .navcta{background:var(--emeraude);color:#fff !important;padding:9px 20px;border-radius:2px}
+  .cartbtn{position:relative;background:transparent;border:1px solid rgba(30,36,32,.25);border-radius:2px;padding:8px 14px;font-family:'Jost',sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;color:var(--encre)}
+  .cartbtn:hover{border-color:var(--emeraude);color:var(--emeraude)}
+  .cartbtn .count{position:absolute;top:-8px;right:-8px;background:var(--emeraude);color:#fff;font-size:.68rem;width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+  @media(max-width:760px){.navlinks a:not(.navcta){display:none}}
+
+  /* ---------- HERO ---------- */
+  header.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(160deg,var(--lin) 0%,var(--sable) 60%,#E7DCCB 100%);position:relative;overflow:hidden;padding-top:64px}
+  .hero-ar{position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:'Amiri',serif;font-size:clamp(14rem,32vw,26rem);color:rgba(31,92,77,.07);user-select:none;pointer-events:none;line-height:1}
+  .hero-inner{position:relative;z-index:2}
+  .hero h1{font-size:clamp(2.6rem,6.5vw,4.6rem);margin:18px 0 8px}
+  .hero h1 em{font-style:normal;color:var(--emeraude)}
+  .hero .arword{font-size:clamp(1.6rem,3vw,2.3rem);color:var(--or);display:block;margin-bottom:26px}
+  .hero p{max-width:520px;font-size:1.05rem;color:#4a4f49}
+  .heroctas{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;padding:14px 30px;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;border-radius:2px;transition:.25s;border:none;cursor:pointer;font-family:'Jost',sans-serif}
+  .btn-full{background:var(--encre);color:#fff}
+  .btn-full:hover{background:var(--emeraude)}
+  .btn-ghost{border:1px solid var(--encre);color:var(--encre);background:transparent}
+  .btn-ghost:hover{border-color:var(--emeraude);color:var(--emeraude)}
+  .hero-strip{display:flex;gap:40px;margin-top:64px;flex-wrap:wrap}
+  .hero-strip div{font-size:.8rem;letter-spacing:.08em;color:var(--taupe)}
+  .hero-strip strong{display:block;font-family:'Marcellus',serif;font-size:1.15rem;color:var(--encre);letter-spacing:0}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:96px 0}
+  .sec-head{max-width:640px;margin-bottom:56px}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-top:14px}
+  .sec-head p{margin-top:14px;color:#4a4f49}
+
+  /* ---------- COLLECTIONS ---------- */
+  #collections{background:var(--blanc)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:22px}
+  .card{background:var(--lin);border:1px solid rgba(30,36,32,.08);padding:0;display:flex;flex-direction:column;transition:.3s;border-radius:2px;overflow:hidden;cursor:pointer}
+  .card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(30,36,32,.10)}
+  .swatch{height:140px;position:relative}
+  .swatch::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(0,0,0,.06))}
+  .s-medine{background:linear-gradient(135deg,#CBB79B,#B49A76)}
+  .s-jersey{background:linear-gradient(135deg,#3E4A44,#2A332E)}
+  .s-mousse{background:linear-gradient(135deg,#EADFD3,#DCCBB8)}
+  .s-crepe{background:linear-gradient(135deg,#7E8C82,#5F6E64)}
+  .s-bambou{background:linear-gradient(135deg,#B7C9B4,#93AB92)}
+  .card-body{padding:22px 20px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card h3{font-size:1.2rem}
+  .gsm{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--or);font-weight:500}
+  .card p{font-size:.88rem;color:#4a4f49;flex:1}
+  .prix{font-family:'Marcellus',serif;font-size:1.05rem;margin-top:6px}
+  .tag{display:inline-block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:var(--emeraude);color:#fff;padding:3px 10px;border-radius:2px;width:max-content}
+  .card-actions{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:10px}
+  .btn-order{background:var(--emeraude);color:#fff;border:none;padding:10px 18px;font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;border-radius:2px;cursor:pointer;transition:.25s}
+  .btn-order:hover{background:var(--encre)}
+  .card-hint{font-size:.72rem;color:var(--taupe);letter-spacing:.06em}
+
+  /* ---------- FICHE PRODUIT (MODALE) ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(30,36,32,.55);backdrop-filter:blur(6px);z-index:90;display:none;align-items:center;justify-content:center;padding:20px}
+  .overlay.open{display:flex;animation:fadein .25s ease}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  .sheet{background:var(--lin);max-width:880px;width:100%;max-height:90vh;overflow-y:auto;border-radius:2px;position:relative;animation:rise .35s cubic-bezier(.2,.7,.3,1)}
+  @keyframes rise{from{transform:translateY(26px);opacity:0}to{transform:translateY(0);opacity:1}}
+  .sheet-close{position:absolute;top:16px;right:16px;background:rgba(30,36,32,.85);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:1rem;cursor:pointer;z-index:2}
+  .sheet-close:hover{background:var(--emeraude)}
+  .sheet-swatch{height:190px}
+  .sheet-body{padding:44px 48px 48px}
+  @media(max-width:640px){.sheet-body{padding:32px 24px 36px}}
+  .sheet-body .eyebrow{display:block;margin-bottom:10px}
+  .sheet-body h3{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:6px}
+  .punch{font-family:'Marcellus',serif;font-size:clamp(1.15rem,2.4vw,1.6rem);color:var(--emeraude);margin:14px 0 18px;line-height:1.35}
+  .sheet-body>p.desc{font-size:1rem;color:#4a4f49;max-width:600px}
+  .specs{margin:30px 0 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0}
+  .spec{padding:16px 0;border-top:1px solid rgba(30,36,32,.12);font-size:.9rem;color:#4a4f49}
+  .spec strong{display:block;font-family:'Marcellus',serif;font-size:1rem;color:var(--encre);margin-bottom:2px;font-weight:400}
+  .sheet-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:26px;padding-top:24px;border-top:1px solid rgba(30,36,32,.12);flex-wrap:wrap}
+  .sheet-prix{font-family:'Marcellus',serif;font-size:1.6rem}
+  .sheet-prix small{font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--taupe);display:block}
+
+  /* ---------- PANIER ---------- */
+  .cartpanel{position:fixed;top:74px;right:18px;width:320px;background:var(--blanc);border:1px solid rgba(30,36,32,.12);border-radius:2px;box-shadow:0 24px 60px rgba(30,36,32,.18);z-index:80;padding:22px;display:none}
+  .cartpanel.open{display:block;animation:fadein .2s ease}
+  .cartpanel h4{font-family:'Marcellus',serif;font-size:1.05rem;margin-bottom:14px}
+  .cartline{display:flex;justify-content:space-between;font-size:.86rem;padding:7px 0;border-bottom:1px dashed rgba(30,36,32,.12);gap:10px}
+  .cartline button{background:none;border:none;color:#a05252;cursor:pointer;font-size:.8rem}
+  .carttotal{display:flex;justify-content:space-between;font-family:'Marcellus',serif;font-size:1.05rem;margin:14px 0}
+  .cartempty{font-size:.86rem;color:var(--taupe)}
+  .cartvalidate{width:100%;text-align:center}
+
+  /* ---------- TOAST ---------- */
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--encre);color:var(--lin);padding:13px 26px;border-radius:2px;font-size:.86rem;letter-spacing:.06em;opacity:0;pointer-events:none;transition:.35s;z-index:100}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* ---------- NUANCIER ---------- */
+  #nuancier{background:var(--encre);color:var(--lin)}
+  #nuancier .eyebrow{color:var(--or)}
+  #nuancier .sec-head p{color:#B9BDB6}
+  .seasons{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+  .seasons button{font-family:'Jost',sans-serif;background:transparent;border:1px solid rgba(247,243,236,.3);color:var(--lin);padding:10px 22px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:.25s}
+  .seasons button.on{background:var(--emeraude);border-color:var(--emeraude)}
+  .pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:16px}
+  .chip{border-radius:2px;overflow:hidden;border:1px solid rgba(247,243,236,.14);cursor:pointer;transition:.25s}
+  .chip:hover{transform:translateY(-4px)}
+  .chip .c{height:88px}
+  .chip .n{padding:10px 12px;font-size:.78rem;letter-spacing:.06em;background:rgba(247,243,236,.05)}
+  .pal-note{margin-top:28px;font-size:.85rem;color:#B9BDB6;max-width:560px}
+
+  /* ---------- VALEURS ---------- */
+  #valeurs{background:var(--sable)}
+  .vals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+  .val{background:var(--blanc);padding:34px 28px;border-radius:2px;border-top:3px solid var(--emeraude)}
+  .val .arv{font-family:'Amiri',serif;font-size:1.7rem;color:var(--emeraude);display:block;margin-bottom:6px}
+  .val h3{font-size:1.1rem;margin-bottom:10px}
+  .val p{font-size:.9rem;color:#4a4f49}
+
+  /* ---------- NEWSLETTER ---------- */
+  #contact{background:var(--blanc);text-align:center}
+  #contact .sec-head{margin:0 auto 40px}
+  .nl{display:flex;gap:0;max-width:460px;margin:0 auto}
+  .nl input{flex:1;padding:15px 18px;border:1px solid rgba(30,36,32,.2);border-right:none;font-family:'Jost',sans-serif;font-size:.9rem;background:var(--lin);border-radius:2px 0 0 2px;outline:none}
+  .nl input:focus{border-color:var(--emeraude)}
+  .nl button{background:var(--emeraude);color:#fff;border:none;padding:0 26px;font-family:'Jost',sans-serif;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:0 2px 2px 0}
+  .nl button:hover{background:var(--encre)}
+  #nlmsg{margin-top:14px;font-size:.85rem;color:var(--emeraude);min-height:1.2em}
+
+  footer{background:var(--encre);color:#9AA09A;padding:44px 0;font-size:.82rem}
+  .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot .logo{color:var(--lin)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap navin">
+    <a class="logo" href="#">SAK<span>Ī</span>NA</a>
+    <div class="navlinks">
+      <a href="#collections">Collections</a>
+      <a href="#nuancier">Nuancier</a>
+      <a href="#valeurs">Nos valeurs</a>
+      <button class="cartbtn" onclick="toggleCart()">Panier <span class="count" id="cartcount">0</span></button>
+      <a href="#contact" class="navcta">Précommander</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-ar ar">س</div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Modest fashion — Nouvelle marque</span>
+    <h1>La pudeur,<br>portée avec <em>sérénité</em>.</h1>
+    <span class="arword ar">سكينة</span>
+    <p>Des voiles pensés pour la femme musulmane d'aujourd'hui : matières nobles, opacité certifiée, couleurs intemporelles. Chaque pièce est contrôlée pour respecter les conditions du hijab — sans compromis sur l'élégance.</p>
+    <div class="heroctas">
+      <a class="btn btn-full" href="#collections">Découvrir les collections</a>
+      <a class="btn btn-ghost" href="#valeurs">Notre engagement</a>
+    </div>
+    <div class="hero-strip">
+      <div><strong>100 %</strong>Opacité contrôlée</div>
+      <div><strong>2,5 %</strong>des bénéfices en sadaqa</div>
+      <div><strong>0 riba</strong>Paiement 3× sans frais</div>
+      <div><strong>72 h</strong>Livraison en France</div>
+    </div>
+  </div>
+</header>
+
+<section id="collections">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Les matières</span>
+      <h2>Cinq tissus, cinq moments de vie</h2>
+      <p>Nous sélectionnons chaque tissu selon son grammage, son opacité et son tombé — testés un par un avant d'entrer dans la collection. Touchez une carte pour découvrir la fiche complète.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="nuancier">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Le nuancier</span>
+      <h2>Des couleurs qui suivent les saisons</h2>
+      <p>Le socle nude est disponible toute l'année. Les capsules saisonnières changent tous les trois mois — en édition limitée.</p>
+    </div>
+    <div class="seasons" role="tablist">
+      <button class="on" data-s="nude">Socle Nude</button>
+      <button data-s="ete">Été</button>
+      <button data-s="automne">Automne</button>
+      <button data-s="hiver">Hiver</button>
+    </div>
+    <div class="pal" id="pal"></div>
+    <p class="pal-note" id="palnote"></p>
+  </div>
+</section>
+
+<section id="valeurs">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Nos engagements</span>
+      <h2>Une marque construite sur des principes</h2>
+    </div>
+    <div class="vals">
+      <div class="val">
+        <span class="arv ar">حياء</span>
+        <h3>Opacité certifiée</h3>
+        <p>Chaque tissu passe un test de transparence à la lumière avant validation. Ce qui n'est pas conforme n'entre pas en collection.</p>
+      </div>
+      <div class="val">
+        <span class="arv ar">صدقة</span>
+        <h3>Sadaqa intégrée</h3>
+        <p>2,5 % de nos bénéfices sont reversés chaque année à des associations caritatives, avec un rapport publié en toute transparence.</p>
+      </div>
+      <div class="val">
+        <span class="arv ar">أمانة</span>
+        <h3>Sans riba</h3>
+        <p>Aucun crédit à intérêts. Le paiement en trois fois est intégralement sans frais, pour rester fidèles à nos principes.</p>
+      </div>
+      <div class="val">
+        <span class="arv ar">إحسان</span>
+        <h3>Excellence &amp; traçabilité</h3>
+        <p>Tissus sourcés auprès d'ateliers partenaires en Turquie, contrôlés à réception. Nous indiquons le grammage et la composition de chaque pièce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Lancement</span>
+      <h2>Soyez prévenues avant tout le monde</h2>
+      <p>La première collection sort bientôt, en quantités limitées. Inscrivez-vous pour accéder à la précommande et recevoir −10 % sur votre première pièce.</p>
+    </div>
+    <div class="nl">
+      <input type="email" id="email" placeholder="Votre adresse e-mail" aria-label="Adresse e-mail">
+      <button onclick="subscribe()">S'inscrire</button>
+    </div>
+    <p id="nlmsg"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#">SAK<span style="color:var(--or)">Ī</span>NA</a>
+    <div>Instagram · TikTok · contact@sakina-store.fr</div>
+    <div>© 2026 Sakīna — Tous droits réservés</div>
+  </div>
+</footer>
+
+<!-- Fiche produit -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeSheet()">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <button class="sheet-close" onclick="closeSheet()" aria-label="Fermer">✕</button>
+    <div class="sheet-swatch" id="sh-swatch"></div>
+    <div class="sheet-body">
+      <span class="eyebrow" id="sh-tag"></span>
+      <h3 id="sh-name"></h3>
+      <div class="punch" id="sh-punch"></div>
+      <p class="desc" id="sh-desc"></p>
+      <div class="specs" id="sh-specs"></div>
+      <div class="sheet-foot">
+        <div class="sheet-prix"><span id="sh-prix"></span><small>Livraison 72 h · Retours 14 jours</small></div>
+        <button class="btn-order" id="sh-order" style="padding:14px 34px;font-size:.8rem">Commander</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Panier -->
+<div class="cartpanel" id="cartpanel">
+  <h4>Votre panier</h4>
+  <div id="cartlines"><p class="cartempty">Votre panier est vide — parcourez les collections pour commencer.</p></div>
+  <div class="carttotal" id="carttotal" style="display:none"><span>Total</span><span id="totalval"></span></div>
+  <button class="btn-order cartvalidate" id="validatebtn" style="display:none" onclick="validateCart()">Valider ma commande</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- PRODUITS ---------- */
+const PRODUCTS = [
+  {
+    id:"medine", name:"Soie de Médine", cls:"s-medine", tag:"Best-seller",
+    gsm:"120 g/m² · 75 × 200 cm", prix:12.90,
+    short:"Notre pièce signature. Satinée, totalement opaque, infroissable. Le tombé parfait du matin au soir.",
+    punch:"Soyeuse. Opaque. Sereine.",
+    desc:"Un tombé qui ne bouge pas. Une surface satinée que la lumière ne traverse pas. La soie de Médine ne se froisse presque jamais — elle se porte du matin au soir sans un pli, du bureau aux grandes occasions.",
+    specs:[
+      ["120 g/m²","L'équilibre exact entre légèreté et couvrance."],
+      ["Opacité 100 %","Testée à la lumière du jour, chaque coloris."],
+      ["75 × 200 cm","Assez long pour tous les drapés."],
+      ["Entretien simple","Machine 30°, cycle délicat. Aucun repassage."]
+    ]
+  },
+  {
+    id:"jersey", name:"Jersey Premium", cls:"s-jersey", tag:"Quotidien",
+    gsm:"200 g/m² · 80 × 200 cm", prix:9.90,
+    short:"Extensible, doux, il tient sans épingle. Le compagnon des journées actives et des saisons froides.",
+    punch:"Il tient. Tout seul. Toute la journée.",
+    desc:"Pas d'épingle. Pas d'aimant. Le jersey épouse, s'étire et reste exactement là où vous l'avez posé — pensé pour les journées qui n'attendent pas.",
+    specs:[
+      ["200 g/m²","Dense, doux, totalement opaque."],
+      ["Extensible 4 sens","Se drape en quelques secondes."],
+      ["Zéro accessoire","Il ne glisse pas. Vraiment."],
+      ["Automne – hiver","La chaleur sans l'épaisseur."]
+    ]
+  },
+  {
+    id:"bambou", name:"Bambou Liquide", cls:"s-bambou", tag:"Nouveauté",
+    gsm:"180 g/m² · 80 × 190 cm", prix:12.90,
+    short:"La fibre de bambou la plus fluide du marché. Fraîche, respirante, un toucher seconde peau.",
+    punch:"Doux comme l'eau. Frais comme l'ombre.",
+    desc:"Une fibre de bambou si fluide qu'on la dit liquide. Elle évacue l'humidité, respire dans la chaleur et caresse la peau — la sensation seconde peau, même en plein été.",
+    specs:[
+      ["180 g/m²","Jersey de bambou : fluide et opaque à la fois."],
+      ["Thermorégulant","Frais l'été, tempéré l'hiver."],
+      ["Évacue l'humidité","Respirant même par forte chaleur."],
+      ["Naturellement doux","Fibre végétale, hypoallergénique."]
+    ]
+  },
+  {
+    id:"mousse", name:"Mousseline à enfiler", cls:"s-mousse", tag:"Été",
+    gsm:"70 g/m² · préformée", prix:12.90,
+    short:"Légère, aérienne, prête en 30 secondes grâce à sa structure intégrée. Sous-bonnet assorti offert.",
+    punch:"Prête. En 30 secondes.",
+    desc:"Une structure intégrée, une couche de mousseline aérienne. Vous l'enfilez — c'est tout. Aucun drapé à maîtriser, aucun réglage dans la journée. Le sous-bonnet assorti est offert.",
+    specs:[
+      ["70 g/m²","Le plus léger de la collection."],
+      ["Préformée","Structure intérieure sécurisée."],
+      ["30 secondes","De la boîte à la porte."],
+      ["Sous-bonnet offert","Assorti, pour une couvrance totale."]
+    ]
+  },
+  {
+    id:"crepe", name:"Crêpe Luxe", cls:"s-crepe", tag:"Mi-saison",
+    gsm:"105 g/m² · 75 × 200 cm", prix:8.90,
+    short:"Texturé et respirant, il laisse circuler l'air tout en gardant une belle tenue.",
+    punch:"Texturé. Respirant. Vivant.",
+    desc:"Un grain subtil qui accroche la lumière et laisse circuler l'air. Le crêpe garde sa tenue du premier drapé au dernier — le compagnon naturel des mi-saisons.",
+    specs:[
+      ["105 g/m²","Léger, avec du corps."],
+      ["Texture crêpe","Un grain qui ne marque pas les plis."],
+      ["Respirant","L'air circule à travers la maille."],
+      ["Printemps – automne","À porter avec sous-bonnet."]
+    ]
+  }
+];
+
+/* ---------- CARTES ---------- */
+const grid = document.getElementById('grid');
+grid.innerHTML = PRODUCTS.map(p => `
+  <article class="card" onclick="openSheet('${p.id}')">
+    <div class="swatch ${p.cls}"></div>
+    <div class="card-body">
+      <span class="tag">${p.tag}</span>
+      <h3>${p.name}</h3>
+      <span class="gsm">${p.gsm}</span>
+      <p>${p.short}</p>
+      <div class="card-actions">
+        <div class="prix">${p.prix.toFixed(2).replace('.',',')} €</div>
+        <button class="btn-order" onclick="event.stopPropagation();addToCart('${p.id}')">Commander</button>
+      </div>
+      <span class="card-hint">Toucher pour la fiche complète →</span>
+    </div>
+  </article>
+`).join('');
+
+/* ---------- FICHE PRODUIT ---------- */
+const overlay = document.getElementById('overlay');
+function openSheet(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  document.getElementById('sh-swatch').className = 'sheet-swatch swatch ' + p.cls;
+  document.getElementById('sh-tag').textContent = p.tag + " — " + p.gsm;
+  document.getElementById('sh-name').textContent = p.name;
+  document.getElementById('sh-punch').textContent = p.punch;
+  document.getElementById('sh-desc').textContent = p.desc;
+  document.getElementById('sh-specs').innerHTML = p.specs.map(s=>`<div class="spec"><strong>${s[0]}</strong>${s[1]}</div>`).join('');
+  document.getElementById('sh-prix').textContent = p.prix.toFixed(2).replace('.',',') + " €";
+  document.getElementById('sh-order').onclick = () => { addToCart(id); closeSheet(); };
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSheet(){ overlay.classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e => { if(e.key === 'Escape'){ closeSheet(); document.getElementById('cartpanel').classList.remove('open'); } });
+
+/* ---------- PANIER ---------- */
+let cart = [];
+function addToCart(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  const line = cart.find(l=>l.id===id);
+  if(line) line.qty++; else cart.push({id:p.id,name:p.name,prix:p.prix,qty:1});
+  renderCart();
+  showToast("✓ " + p.name + " ajouté au panier");
+}
+function removeFromCart(id){ cart = cart.filter(l=>l.id!==id); renderCart(); }
+function renderCart(){
+  const n = cart.reduce((a,l)=>a+l.qty,0);
+  document.getElementById('cartcount').textContent = n;
+  const lines = document.getElementById('cartlines');
+  const total = document.getElementById('carttotal');
+  const btn = document.getElementById('validatebtn');
+  if(!cart.length){
+    lines.innerHTML = '<p class="cartempty">Votre panier est vide — parcourez les collections pour commencer.</p>';
+    total.style.display='none'; btn.style.display='none'; return;
+  }
+  lines.innerHTML = cart.map(l=>`
+    <div class="cartline">
+      <span>${l.name} × ${l.qty}</span>
+      <span>${(l.prix*l.qty).toFixed(2).replace('.',',')} € <button onclick="removeFromCart('${l.id}')" aria-label="Retirer">✕</button></span>
+    </div>`).join('');
+  const t = cart.reduce((a,l)=>a+l.prix*l.qty,0);
+  document.getElementById('totalval').textContent = t.toFixed(2).replace('.',',') + " €";
+  total.style.display='flex'; btn.style.display='block';
+}
+function toggleCart(){ document.getElementById('cartpanel').classList.toggle('open'); }
+function validateCart(){
+  document.getElementById('cartpanel').classList.remove('open');
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+  const msg = document.getElementById('nlmsg');
+  msg.style.color = "var(--emeraude)";
+  msg.textContent = "Laissez votre e-mail pour finaliser votre commande — le paiement ouvre au lancement, in shā' Allāh.";
+}
+function showToast(text){
+  const t = document.getElementById('toast');
+  t.textContent = text;
+  t.classList.add('show');
+  clearTimeout(t._h);
+  t._h = setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
+/* ---------- NUANCIER ---------- */
+const PALETTES = {
+  nude: {
+    note: "La gamme permanente : 60 à 70 % des ventes chez la plupart des marques de voiles. À stocker en priorité, dans toutes les matières.",
+    colors: [
+      ["Blanc cassé","#F3EDE3"],["Sable","#E3D5BF"],["Beige","#D6C3A5"],["Camel","#B98F5F"],
+      ["Taupe","#9C8E7C"],["Chocolat","#5C4634"],["Gris perle","#C9C7C2"],["Noir","#1C1B19"]
+    ]
+  },
+  ete: {
+    note: "Les coloris clairs se vendent 2 à 3 fois plus vite en été. À privilégier : mousseline, bambou liquide et crêpe léger.",
+    colors: [
+      ["Blanc pur","#FBFAF6"],["Bleu ciel","#BFD4E2"],["Rose poudré","#E8CFC9"],["Lilas","#CDBEDA"],
+      ["Vert amande","#C4D3BC"],["Jaune pâle","#EFE3B8"],["Gris clair","#D8D8D4"],["Pêche","#F0CDB4"]
+    ]
+  },
+  automne: {
+    note: "Les tons naturels dominent la rentrée : parfaits en jersey standard, premium et froissé.",
+    colors: [
+      ["Terracotta","#B0603F"],["Moutarde","#C79A3C"],["Vert forêt","#2F4A38"],["Bordeaux","#5E2231"],
+      ["Beige chaud","#CBAE87"],["Rouille","#96502E"],["Olive","#6E6B3E"],["Prune","#4E3350"]
+    ]
+  },
+  hiver: {
+    note: "Chaleur et élégance : jersey épais et soie de Médine dans des tons profonds, pour les fêtes et l'hiver.",
+    colors: [
+      ["Émeraude","#1F5C4D"],["Bleu nuit","#1E2A44"],["Bordeaux profond","#4A1C26"],["Anthracite","#33342F"],
+      ["Chocolat noir","#3B2A1E"],["Vert sapin","#22382C"],["Aubergine","#3A2438"],["Or ancien","#B9905A"]
+    ]
+  }
+};
+const pal = document.getElementById('pal');
+const note = document.getElementById('palnote');
+function render(key){
+  pal.innerHTML = PALETTES[key].colors.map(c =>
+    `<div class="chip" title="${c[0]}"><div class="c" style="background:${c[1]}"></div><div class="n">${c[0]}</div></div>`
+  ).join('');
+  note.textContent = PALETTES[key].note;
+}
+document.querySelectorAll('.seasons button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.seasons button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    render(b.dataset.s);
+  });
+});
+render('nude');
+
+/* ---------- NEWSLETTER ---------- */
+function subscribe(){
+  const e = document.getElementById('email').value.trim();
+  const msg = document.getElementById('nlmsg');
+  if(!e || !e.includes('@')){ msg.textContent = "Merci d'entrer une adresse e-mail valide."; msg.style.color="#a05252"; return; }
+  msg.style.color = "var(--emeraude)";
+  msg.textContent = "Merci ! Vous êtes sur la liste de précommande. À très vite, in shā' Allāh.";
+  document.getElementById('email').value = "";
+}
+</script>
+</body>
+</html>
